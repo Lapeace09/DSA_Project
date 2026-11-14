@@ -1,6 +1,59 @@
 import java.util.Scanner;
 
 public class Main {
+
+        // Node Class
+    static class Song {
+        int songNumber;
+        String songName;
+        int duration;
+        Song prev, next;
+
+        Song(int songNumber, String songName, int songDuration) {
+            this.songNumber = songNumber;
+            this.songName = songName;
+            this.duration = songDuration;
+            this.prev = null;
+            this.next = null;
+        }
+    }
+
+      static class MusicPlaylist {
+
+        Song head, tail, current;
+
+        // 1. Add Song
+        void addSong(int songNumber, String songName, int songDuration) {
+
+            // Check for duplicate Song Number
+            Song temp = head;
+
+            while (temp != null) {
+                if (temp.songNumber == songNumber) {
+                    System.out.println("Song Number already exists!");
+                    return;
+                }
+                temp = temp.next;
+            }
+
+            if (songDuration <= 0) {
+                System.out.println("Duration must be greater than zero!");
+                return;
+            }
+
+            Song newSong = new Song(songNumber, songName, songDuration);
+
+            if (head == null) {
+                head = tail = newSong;
+                current = newSong;
+            } else {
+                tail.next = newSong;
+                newSong.prev = tail;
+                tail = newSong;
+            }
+
+            System.out.println("Song added successfully!");
+        }
     public static void main(String[] args) {
           Scanner sc = new Scanner(System.in);
 
@@ -32,10 +85,7 @@ public class Main {
 
                     System.out.println("Enter Song Duration:");
                     int songDuration = sc.nextInt();
-
-                    
-
-
             }
     }
+}
 }
