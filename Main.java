@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Main {
 
-        // Node Class
+        // Node Class 
     static class Song {
         int songNumber;
         String songName;
@@ -18,11 +18,11 @@ public class Main {
         }
     }
 
-      static class MusicPlaylist {
+      static class MusicPlaylist { // Dito Mag iistart ang doubly linked list 
 
         Song head, tail, current;
 
-        // 1. Add Song
+        // 1. Add Song Function na ito ng Add Song
         void addSong(int songNumber, String songName, int songDuration) {
 
             // Check for duplicate Song Number
@@ -54,6 +54,36 @@ public class Main {
 
             System.out.println("Song added successfully!");
         }
+
+        // 2. Delete Song - Limson 
+        //public void deleteSong()
+
+        // 3. Search Song - Limson - Velasco
+        //public void searchSong()
+
+        // 4. Display Playlist - Nagrampa
+        //public void displayPlaylist() 
+
+        // 5. Play Song - Alabado
+        //public void playSong()
+
+        // 6. Next Song - Rivera
+        //public void nextSong()
+
+        // 7. Previous Song - Lanon
+        //public void previousSong()
+
+        // 8. Count Total Songs - Echaves
+        //public void countTotalSongs()
+
+
+        // Variable name na gagamitin 
+        // Song Name = songName
+        // Song Number = songNumber
+        // Song Duration = songDuration
+        // Scanner = sc
+
+        
     public static void main(String[] args) {
           Scanner sc = new Scanner(System.in);
 
