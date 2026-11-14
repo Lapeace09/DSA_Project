@@ -38,4 +38,24 @@ public class Main {
 
             }
     }
+
+    public static void countTotalSongs() {
+        // Edge case: empty playlist
+        if (head == null) {
+            System.out.println("\nThe playlist is empty. Total songs: 0");
+            System.out.println("Time: O(1)");
+            return;
+        }
+
+        int count = 0;
+        SongNode current = head;
+
+        while (current != null) {
+            count++;
+            current = current.next;
+        }
+
+        System.out.println("\nTotal songs in the playlist: " + count);
+        System.out.println("Time: O(n)");
+    }
 }
