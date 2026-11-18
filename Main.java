@@ -104,8 +104,30 @@ public class Main {
 
             System.out.println("Song deleted successfully!");
         }
-        // 3. Search Song - Limson - Velasco
-        //public void searchSong()
+        // 3. Search Song - Velasco
+        public void searchSong(int songNumber) {
+            // Check if playlist is empty
+            if (head == null) {
+                System.out.println("Playlist is empty!");
+                return;
+            }
+
+            // Start checking from the head (first song)
+            Song temp = head;
+            while (temp != null) {
+                if (temp.songNumber == songNumber) {
+                    System.out.println("Song Found!");
+                    System.out.println("Number: " + temp.songNumber);
+                    System.out.println("Name: " + temp.songName);
+                    System.out.println("Duration: " + temp.duration + " seconds");
+                    return;
+                }
+                temp = temp.next; 
+            }
+
+            // If it finishes the loop without finding it
+            System.out.println("Song not found!");
+        }
 
         // 4. Display Playlist - Nagrampa
         //public void displayPlaylist() 
