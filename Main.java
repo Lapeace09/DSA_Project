@@ -161,7 +161,25 @@ public class Main {
 
         // 8. Count Total Songs - Echaves
         //public void countTotalSongs()
+        public void countTotalSongs() {
+            // Edge case: empty playlist
+            if (head == null) {
+                System.out.println("\nThe playlist is empty. Total songs: 0");
+                System.out.println("Time: O(1)");
+                return;
+            }
 
+            int count = 0;
+            Song temp = head;
+
+            while (temp != null) {
+                count++;
+                temp = temp.next;
+            }
+
+            System.out.println("\nTotal songs in the playlist: " + count);
+            System.out.println("Time: O(n)");
+        }
 
         // Variable name na gagamitin 
         // Song Name = songName
