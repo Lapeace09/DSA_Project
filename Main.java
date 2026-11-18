@@ -57,7 +57,53 @@ public class Main {
 
         // 2. Delete Song - Limson 
         //public void deleteSong()
+        public void deleteSong(int songNumber) {
 
+            // Case 1: playlist is empty
+            if (head == null) {
+                System.out.println("Playlist is empty!");
+                return;
+            }
+
+            // Search for the song with this song number
+            Song temp = head;
+            while (temp != null && temp.songNumber != songNumber) {
+                temp = temp.next;
+            }
+
+            // Case 2: song number not found
+            if (temp == null) {
+                System.out.println("Song Number not found!");
+                return;
+            }
+
+            // If the song being deleted is the current song, move current to a neighbor
+            if (temp == current) {
+                current = (temp.next != null) ? temp.next : temp.prev;
+            }
+
+            // Case 3: it's the only song
+            if (temp == head && temp == tail) {
+                head = tail = null;
+            }
+            // Case 4: deleting the first song
+            else if (temp == head) {
+                head = head.next;
+                head.prev = null;
+            }
+            // Case 5: deleting the last song
+            else if (temp == tail) {
+                tail = tail.prev;
+                tail.next = null;
+            }
+            // Case 6: deleting a song in the middle
+            else {
+                temp.prev.next = temp.next;
+                temp.next.prev = temp.prev;
+            }
+
+            System.out.println("Song deleted successfully!");
+        }
         // 3. Search Song - Limson - Velasco
         //public void searchSong()
 
