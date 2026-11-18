@@ -118,6 +118,24 @@ public class Main {
 
         // 7. Previous Song - Lanon
         //public void previousSong()
+                public void previousSong() {
+            // Case 1: Playlist is empty
+            if (head == null || current == null) {
+                System.out.println("Playlist is empty!");
+                return;
+            }
+
+            // Case 2: Already at the first song (no previous node)
+            if (current.prev == null) {
+                System.out.println("You are already at the first song: " + current.songName);
+                return;
+            }
+
+            // Case 3: Move current pointer to the previous song
+            current = current.prev;
+            System.out.println("Now playing previous song: [" + current.songNumber + "] " 
+                    + current.songName + " (" + current.duration + "s)");
+        }
 
         // 8. Count Total Songs - Echaves
         //public void countTotalSongs()
