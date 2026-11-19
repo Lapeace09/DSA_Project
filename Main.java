@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Main {
 
-        // Node Class 
+    // Node Class
     static class Song {
         int songNumber;
         String songName;
@@ -18,7 +18,7 @@ public class Main {
         }
     }
 
-      static class MusicPlaylist { // Dito Mag iistart ang doubly linked list 
+    static class MusicPlaylist { // Dito Mag iistart ang doubly linked list
 
         Song head, tail, current;
 
@@ -55,8 +55,8 @@ public class Main {
             System.out.println("Song added successfully!");
         }
 
-        // 2. Delete Song - Limson 
-        //public void deleteSong()
+        // 2. Delete Song - Limson
+        // public void deleteSong()
         public void deleteSong(int songNumber) {
 
             // Case 1: playlist is empty
@@ -104,6 +104,7 @@ public class Main {
 
             System.out.println("Song deleted successfully!");
         }
+
         // 3. Search Song - Velasco
         public void searchSong(int songNumber) {
             // Check if playlist is empty
@@ -122,7 +123,7 @@ public class Main {
                     System.out.println("Duration: " + temp.duration + " seconds");
                     return;
                 }
-                temp = temp.next; 
+                temp = temp.next;
             }
 
             // If it finishes the loop without finding it
@@ -130,17 +131,53 @@ public class Main {
         }
 
         // 4. Display Playlist - Nagrampa
-        //public void displayPlaylist() 
+        // public void displayPlaylist()
+        // Shows all songs from head to tail. Time: O(n)
+        public void displayPlaylist() {
+
+            // Edge case: playlist is empty
+            if (head == null) {
+                System.out.println("  Playlist is empty!");
+                System.out.println("  Time complexity: O(1)");
+                return;
+            }
+
+            System.out.println("  HEAD");
+            System.out.println("   |");
+            System.out.println("   v");
+
+            Song temp = head;
+            int position = 1;
+
+            // Go through the list one node at a time
+            while (temp != null) {
+                System.out.println("  (" + position + ") [" + temp.songNumber + "] "
+                        + temp.songName + " (" + temp.duration + "s)");
+
+                // Print the arrow only if there is still a next song
+                if (temp.next != null) {
+                    System.out.println("     <-->");
+                }
+
+                temp = temp.next;
+                position++;
+            }
+
+            System.out.println("   |");
+            System.out.println("   v");
+            System.out.println("  TAIL -> NULL");
+            System.out.println("  Time complexity: O(n)");
+        }
 
         // 5. Play Song - Alabado
-        //public void playSong()
+        // public void playSong()
 
         // 6. Next Song - Rivera
-        //public void nextSong()
+        // public void nextSong()
 
         // 7. Previous Song - Lanon
-        //public void previousSong()
-                public void previousSong() {
+        // public void previousSong()
+        public void previousSong() {
             // Case 1: Playlist is empty
             if (head == null || current == null) {
                 System.out.println("Playlist is empty!");
@@ -155,12 +192,12 @@ public class Main {
 
             // Case 3: Move current pointer to the previous song
             current = current.prev;
-            System.out.println("Now playing previous song: [" + current.songNumber + "] " 
+            System.out.println("Now playing previous song: [" + current.songNumber + "] "
                     + current.songName + " (" + current.duration + "s)");
         }
 
         // 8. Count Total Songs - Echaves
-        //public void countTotalSongs()
+        // public void countTotalSongs()
         public void countTotalSongs() {
             // Edge case: empty playlist
             if (head == null) {
@@ -181,15 +218,14 @@ public class Main {
             System.out.println("Time: O(n)");
         }
 
-        // Variable name na gagamitin 
+        // Variable name na gagamitin
         // Song Name = songName
         // Song Number = songNumber
         // Song Duration = songDuration
         // Scanner = sc
 
-        
-    public static void main(String[] args) {
-          Scanner sc = new Scanner(System.in);
+        public static void main(String[] args) {
+            Scanner sc = new Scanner(System.in);
 
             System.out.println("\n================================");
             System.out.println("         MUSIC PLAYLIST");
@@ -220,6 +256,6 @@ public class Main {
                     System.out.println("Enter Song Duration:");
                     int songDuration = sc.nextInt();
             }
+        }
     }
-}
 }
