@@ -173,8 +173,24 @@ public class Main {
         // public void playSong()
 
         // 6. Next Song - Rivera
-        // public void nextSong()
+public void nextSong() {
+    // Case 1: Playlist is empty
+    if (head == null || current == null) {
+        System.out.println("Playlist is empty!");
+        return;
+    }
 
+    // Case 2: Already at the last song (no next node)
+    if (current.next == null) {
+        System.out.println("You are already at the last song: " + current.songName);
+        return;
+    }
+
+    // Case 3: Move current pointer to the next song
+    current = current.next;
+    System.out.println("Now playing next song: [" + current.songNumber + "] "
+            + current.songName + " (" + current.duration + "s)");
+}
         // 7. Previous Song - Lanon
         // public void previousSong()
         public void previousSong() {
